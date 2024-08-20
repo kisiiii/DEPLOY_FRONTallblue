@@ -25,9 +25,11 @@ const Component = () => {
       const fetchData = async () => {
         try {
           const [dogResponse, pointsResponse] = await Promise.all([
-            fetch(`${process.env.API_ENDPOINT}/get_dog_data?user_id=${userId}`),
             fetch(
-              `${process.env.API_ENDPOINT}/get_user_points?user_id=${userId}`
+              `${process.env.NEXT_PUBLIC_API_ENDPOINT}/get_dog_data?user_id=${userId}`
+            ),
+            fetch(
+              `${process.env.NEXT_PUBLIC_API_ENDPOINT}/get_user_points?user_id=${userId}`
             ),
           ]);
 

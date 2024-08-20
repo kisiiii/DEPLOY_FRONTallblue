@@ -1,5 +1,5 @@
 export default async function fetchUsers(email, password) {
-  const res = await fetch(`${process.env.API_ENDPOINT}/allusers`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/allusers`, {
     cache: "no-cache",
   });
 

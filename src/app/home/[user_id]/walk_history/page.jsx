@@ -14,7 +14,7 @@ const WalkReplay = ({ params }) => {
       try {
         let response = await fetch(
           `${
-            process.env.API_ENDPOINT
+            process.env.NEXT_PUBLIC_API_ENDPOINT
           }/locations/history?user_id=${user_id}&date=${
             new Date().toISOString().split("T")[0]
           }`
@@ -31,7 +31,7 @@ const WalkReplay = ({ params }) => {
           initializeMap(latestLocation.latitude, latestLocation.longitude);
         } else {
           response = await fetch(
-            `${process.env.API_ENDPOINT}/locations/history/latest?user_id=${user_id}`
+            `${process.env.NEXT_PUBLIC_API_ENDPOINT}/locations/history/latest?user_id=${user_id}`
           );
 
           if (!response.ok) {
@@ -90,7 +90,7 @@ const WalkReplay = ({ params }) => {
   useEffect(() => {
     if (date && user_id && map) {
       fetch(
-        `${process.env.API_ENDPOINT}/locations/history?user_id=${user_id}&date=${date}`
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/locations/history?user_id=${user_id}&date=${date}`
       )
         .then((response) => response.json())
         .then((data) => {

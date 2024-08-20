@@ -14,7 +14,7 @@ const WalkPage = ({ params }) => {
   const [nearbyDogs, setNearbyDogs] = useState([]); // 近くにいる犬の情報を保持する状態
 
   const insertRTLocation = (latitude, longitude) => {
-    fetch(`${process.env.API_ENDPOINT}/insert_rtlocation`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/insert_rtlocation`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const WalkPage = ({ params }) => {
   };
 
   const updateRTLocation = (latitude, longitude) => {
-    fetch(`${process.env.API_ENDPOINT}/update_rtlocation`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/update_rtlocation`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const WalkPage = ({ params }) => {
   };
 
   const clearRTLocation = () => {
-    fetch(`${process.env.API_ENDPOINT}/clear_rtlocation`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/clear_rtlocation`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +88,7 @@ const WalkPage = ({ params }) => {
   const fetchNearbyDogs = async (latitude, longitude) => {
     try {
       const response = await fetch(
-        `${process.env.API_ENDPOINT}/nearby_dogs?user_id=${user_id}&latitude=${latitude}&longitude=${longitude}`
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/nearby_dogs?user_id=${user_id}&latitude=${latitude}&longitude=${longitude}`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -113,7 +113,7 @@ const WalkPage = ({ params }) => {
         const timestamp = jstTime.toISOString();
 
         // locationsエンドポイントに位置情報を送信
-        fetch(`${process.env.API_ENDPOINT}/locations`, {
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/locations`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -40,10 +40,13 @@ const RegisterDogPage = () => {
       const imageData = new FormData();
       imageData.append("file", formData.dog_photo);
 
-      const uploadRes = await fetch(`${process.env.API_ENDPOINT}/upload`, {
-        method: "POST",
-        body: imageData,
-      });
+      const uploadRes = await fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/upload`,
+        {
+          method: "POST",
+          body: imageData,
+        }
+      );
 
       if (!uploadRes.ok) {
         const errorData = await uploadRes.json();
@@ -62,13 +65,16 @@ const RegisterDogPage = () => {
         user_id: formData.user_id,
       };
 
-      const dogRes = await fetch(`${process.env.API_ENDPOINT}/dogs`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dogData),
-      });
+      const dogRes = await fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/dogs`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dogData),
+        }
+      );
 
       if (!dogRes.ok) {
         const errorData = await dogRes.json();
