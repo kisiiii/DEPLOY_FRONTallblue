@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const WalkReplay = ({ params }) => {
   const user_id = params.user_id;
@@ -69,7 +69,7 @@ const WalkReplay = ({ params }) => {
         }
       };
 
-      window.initMap = () => {
+      const initMap = (lat, lng) => {
         const mapInstance = new google.maps.Map(
           document.getElementById("map"),
           {
@@ -100,40 +100,43 @@ const WalkReplay = ({ params }) => {
     }
   }, [date, user_id, map]);
 
-  const plotLocationsOnMap = (locations) => {
-    if (locations.length > 1) {
-      const path = locations.map((loc) => ({
-        lat: loc.latitude,
-        lng: loc.longitude,
-      }));
+  const plotLocationsOnMap = useCallback(
+    (locations) => {
+      if (locations.length > 1) {
+        const path = locations.map((loc) => ({
+          lat: loc.latitude,
+          lng: loc.longitude,
+        }));
 
-      // 軌跡を赤線で描画
-      const walkPath = new google.maps.Polyline({
-        path: path,
-        geodesic: true,
-        strokeColor: "#FF0000",
-        strokeOpacity: 1.0,
-        strokeWeight: 2,
-      });
+        // 軌跡を赤線で描画
+        const walkPath = new google.maps.Polyline({
+          path: path,
+          geodesic: true,
+          strokeColor: "#FF0000",
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+        });
 
-      walkPath.setMap(map);
+        walkPath.setMap(map);
 
-      // マップの表示領域を、すべての位置情報を含むように調整
-      const bounds = new google.maps.LatLngBounds();
-      path.forEach((pos) => bounds.extend(pos));
-      map.fitBounds(bounds);
+        // マップの表示領域を、すべての位置情報を含むように調整
+        const bounds = new google.maps.LatLngBounds();
+        path.forEach((pos) => bounds.extend(pos));
+        map.fitBounds(bounds);
 
-      // 最小表示領域を200m以上に設定
-      const minZoomLevel = 17; // 200m範囲程度のズームレベル
-      google.maps.event.addListenerOnce(map, "bounds_changed", function () {
-        if (map.getZoom() > minZoomLevel) {
-          map.setZoom(minZoomLevel);
-        }
-      });
-    } else {
-      console.warn("少なくとも2つの位置情報が必要です。");
-    }
-  };
+        // 最小表示領域を200m以上に設定
+        const minZoomLevel = 17; // 200m範囲程度のズームレベル
+        google.maps.event.addListenerOnce(map, "bounds_changed", function () {
+          if (map.getZoom() > minZoomLevel) {
+            map.setZoom(minZoomLevel);
+          }
+        });
+      } else {
+        console.warn("少なくとも2つの位置情報が必要です。");
+      }
+    },
+    [map]
+  );
 
   const handleDateChange = (event) => {
     setDate(event.target.value);
