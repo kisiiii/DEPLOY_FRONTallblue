@@ -95,10 +95,10 @@ const WalkReplay = ({ params }) => {
         .then((response) => response.json())
         .then((data) => {
           setLocations(data);
-          plotLocationsOnMap(data);
+          plotLocationsOnMap(data); // この関数が依存関係に必要
         });
     }
-  }, [date, user_id, map]);
+  }, [date, user_id, map, plotLocationsOnMap]); // plotLocationsOnMap を依存関係に追加
 
   const plotLocationsOnMap = useCallback(
     (locations) => {

@@ -167,7 +167,7 @@ const WalkPage = ({ params }) => {
       clearInterval(intervalRef.current);
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [user_id, isInserted]);
+  }, [user_id, isInserted, clearRTLocation, getCurrentPositionAndUpdate]);
 
   const handleEndWalk = () => {
     clearInterval(intervalRef.current);
@@ -186,7 +186,7 @@ const WalkPage = ({ params }) => {
           <div className="mt-10 mb-5">
             <div className="relative rounded-31xl bg-azure w-[350px] h-[43px] mx-auto">
               <div className="absolute top-[6px] left-[30px] leading-[28px] font-extrabold inline-block w-[254px] h-7">
-                ちかくにいるPAWPO'S
+                ちかくにいるPAWPO&apos;S
               </div>
             </div>
           </div>

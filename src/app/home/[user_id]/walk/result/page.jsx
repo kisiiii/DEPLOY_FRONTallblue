@@ -101,7 +101,7 @@ const Component = () => {
             <div className="absolute top-[10px] relative rounded-xl bg-white w-[350px] h-[135px] mx-auto">
               <div className="absolute top-[10px] left-[10px] leading-[25px] font-extrabold inline-block w-[323px] h-[51px]">
                 <p className="text-lg [margin-block-start:0] [margin-block-end:1px]">
-                  すれちがったPAWPO'S
+                  すれちがったPAWPO&apos;S
                 </p>
                 <p className="text-2xl m-0">5</p>
               </div>
