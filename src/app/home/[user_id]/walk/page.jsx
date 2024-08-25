@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Head from "next/head";
+import Image from "next/image";
 
 const WalkPage = ({ params }) => {
   const router = useRouter();
@@ -197,7 +198,7 @@ const WalkPage = ({ params }) => {
                 <ul className="space-y-5">
                   {nearbyDogs.map((dog, index) => (
                     <li key={index} className="flex items-center space-x-8">
-                      <img
+                      <Image
                         src={dog.dog_photo}
                         alt={dog.dog_name}
                         className="rounded-full w-20 h-20 object-cover"
@@ -213,7 +214,7 @@ const WalkPage = ({ params }) => {
             </div>
           </div>
           <div className="absolute top-[40px] relative rounded-xl bg-white w-[350px] h-[150px] mx-auto">
-            <img
+            <Image
               className="absolute top-[30px] left-[5px] relative w-[300px] cursor-pointer"
               alt="sanpostop"
               src="/sanpo_stop.png"

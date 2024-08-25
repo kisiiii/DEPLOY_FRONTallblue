@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams, usePathname, useRouter } from "next/navigation"; // useRouterをインポート
 import Head from "next/head";
-import Menu from "../../../components/Menu";
+import Image from "next/image";
 
 const Component = () => {
   const [dogData, setDogData] = useState({
@@ -107,7 +107,7 @@ const Component = () => {
                 {dogData.dog_name}
               </div>
               <div className="absolute top-[34px] left-[100px] rounded-full border-8 border-paleturquoise w-32 h-32 flex items-center justify-center">
-                <img
+                <Image
                   className="rounded-full w-full h-full object-cover"
                   alt="dog"
                   src={dogData.dog_photo}
@@ -117,12 +117,12 @@ const Component = () => {
               <b className="absolute top-[232px] left-[53px] leading-[28px]">
                 PAWPOレベル
               </b>
-              <img
+              <Image
                 className="absolute top-[230px] left-[190px] w-6 overflow-hidden"
                 alt="level"
                 src="/level.png"
               />
-              <img
+              <Image
                 className="absolute top-[230px] left-[222px] w-6 overflow-hidden"
                 alt="level"
                 src="/level.png"
@@ -136,7 +136,7 @@ const Component = () => {
                 </p>
                 <p className="m-0">PAWPO’Sとすれ違ってポイントゲット！</p>
               </div>
-              <img
+              <Image
                 className="absolute top-[72px] left-[10px] w-[330px] cursor-pointer"
                 alt="sanpostart"
                 src="/sanpostart.png"
@@ -148,7 +148,7 @@ const Component = () => {
             <div className="absolute h-[20.82%] w-[12.67%] top-[78.82%] left-[4.36%] leading-[16px] font-extrabold inline-block">
               ホーム
             </div>
-            <img
+            <Image
               className="absolute h-[62.35%] w-[13.51%] top-[14.12%] right-[82.13%] bottom-[23.53%] left-[4.36%] max-w-full overflow-hidden max-h-full"
               alt="home"
               src="/home.png"
@@ -158,7 +158,7 @@ const Component = () => {
             <div className="absolute h-[20.82%] w-[12.67%] top-[78.82%] left-[24.62%] leading-[16px] font-extrabold inline-block">
               さんぽ
             </div>
-            <img
+            <Image
               className="absolute h-[55.29%] w-[12.82%] top-[15.29%] right-[62.82%] bottom-[29.41%] left-[24.36%] max-w-full overflow-hidden max-h-full object-cover"
               alt="sanpo"
               src="/sanpo.png"
@@ -168,7 +168,7 @@ const Component = () => {
             <div className="absolute h-[20.82%] w-[16.9%] top-[78.82%] left-[41.79%] leading-[16px] font-extrabold inline-block">
               ポイント
             </div>
-            <img
+            <Image
               className="absolute h-[56.47%] w-[12.31%] top-[20%] right-[43.59%] bottom-[23.53%] left-[44.1%] max-w-full overflow-hidden max-h-full"
               alt="point"
               src="/point.png"
@@ -178,7 +178,7 @@ const Component = () => {
             <div className="absolute h-[20.82%] w-[8.46%] top-[78.82%] left-[66.41%] leading-[16px] font-extrabold inline-block">
               図鑑
             </div>
-            <img
+            <Image
               className="absolute h-[52.94%] w-[11.54%] top-[20%] right-[23.85%] bottom-[27.06%] left-[64.62%] max-w-full overflow-hidden max-h-full"
               alt="zukan"
               src="/zukanicon.png"
@@ -188,7 +188,7 @@ const Component = () => {
             <div className="absolute h-[20.82%] w-[8.46%] top-[78.82%] left-[84.87%] leading-[16px] font-extrabold inline-block">
               設定
             </div>
-            <img
+            <Image
               className="absolute h-[55.29%] w-[12.05%] top-[17.65%] right-[5.13%] bottom-[27.06%] left-[82.82%] max-w-full overflow-hidden max-h-full"
               alt="settei"
               src="/set.png"
