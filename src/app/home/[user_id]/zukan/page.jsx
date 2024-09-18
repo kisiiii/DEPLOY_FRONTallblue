@@ -16,12 +16,12 @@ const DogsGrid = () => {
   const pathname = usePathname();
   const userId = params.user_id || pathname.split("/")[2]; // URLからuser_idを取得
 
-  useEffect(() => {
-    axios
-      .get(`/encounts?user_id=${userId}`)
-      .then((response) => setDogs(response.data))
-      .catch((error) => console.error(error));
-  }, [userId]);
+  //useEffect(() => {
+  //axios
+  //.get(`/encounts?user_id=${userId}`)
+  //.then((response) => setDogs(response.data))
+  //.catch((error) => console.error(error));
+  //}, [userId]);
 
   const onHomeClick = useCallback(() => {
     router.push(`/home/${userId}`); // home/[user_id] に移動
