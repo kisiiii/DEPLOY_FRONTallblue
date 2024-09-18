@@ -1,11 +1,18 @@
 require("dotenv").config();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
   env: {
-    // Reference a variable that was defined in the .env file and make it available at Build Time
+    // .envファイルで定義された変数を参照し、ビルド時に利用可能にする
     API_ENDPOINT: process.env.NEXT_PUBLIC_API_ENDPOINT,
   },
-}; /*←;が抜けていた */
+  images: {
+    domains: [
+      "thumb.ac-illust.com", // 既存のドメイン
+      "storage.googleapis.com", // 追加するGoogle Cloud Storageのドメイン
+    ],
+  },
+};
 
 module.exports = nextConfig;
