@@ -199,8 +199,11 @@ const WalkPage = ({ params }) => {
                   {nearbyDogs.map((dog, index) => (
                     <li key={index} className="flex items-center space-x-8">
                       <Image
-                        src={dog.dog_photo}
-                        alt={dog.dog_name}
+                        src={dog.dog_photo || "ないしょ"}
+                        alt={
+                          dog.dog_name ||
+                          "https://thumb.ac-illust.com/c4/c4ae42183f9805b1c0b24c353355dad8_t.jpeg"
+                        }
                         className="rounded-full w-20 h-20 object-cover"
                       />
                       <div className="text-left">
